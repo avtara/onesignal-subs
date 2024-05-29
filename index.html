@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+      async=""
+    ></script>
+    <script>
+      var OneSignal = window.OneSignal || [];
+      OneSignal.push(function () {
+        OneSignal.init({
+          appId: "4520bbf4-1553-440e-a375-bd19e302ee36",
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button onclick="subscribe()">Subscribe to Push Notifications</button>
+    <script>
+      function subscribe() {
+        OneSignal.push(function () {
+          OneSignal.registerForPushNotifications();
+        });
+      }
+    </script>
+    <script>
+        OneSignal.push(function() {
+          OneSignal.on('notificationDisplay', function(event) {
+            console.log('OneSignal notification displayed:', event);
+          });
+        });
+      </script>
+  </body>
+</html>
